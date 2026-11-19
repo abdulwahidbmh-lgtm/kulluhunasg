@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#075b43">
+<meta name="description" content="Find Islamic services, education, mosques and resources in Singapore with MinHunaSG.">
+<title>MinHunaSG — Islamic Services in Singapore</title>
+<style>
+:root{--green:#075b43;--mint:#e8f7ef;--ink:#142c24;--muted:#63736c;--border:#e5eee8;--bg:#f7faf8}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input{font:inherit}button{cursor:pointer}header{background:white;border-bottom:1px solid var(--border)}.top{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:16px 20px}.brand{font-size:24px;font-weight:800;color:var(--green);letter-spacing:-1px}.brand small{display:block;font-size:13px;font-weight:600;letter-spacing:0;line-height:1}.navbtn{background:none;border:0;color:var(--green);font-weight:650}.hero{background:linear-gradient(130deg,#e9f8f0,#fff 60%,#d7efe5);padding:54px 20px 58px}.wrap{max-width:1100px;margin:auto}.eyebrow{color:var(--green);font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.hero h1{font-size:clamp(34px,7vw,60px);line-height:1.12;letter-spacing:-.04em;max-width:700px;margin:14px 0}.hero p{max-width:570px;color:#496257;margin:0 0 26px}.searchbox{display:flex;gap:10px;background:white;padding:8px;border:1px solid #cbded3;border-radius:16px;box-shadow:0 12px 30px #06472e12;max-width:720px}.searchbox input{flex:1;min-width:0;border:0;outline:0;padding:12px;font-size:16px}.searchbox button,.primary{background:var(--green);color:white;border:0;border-radius:11px;padding:12px 20px;font-weight:700}main{max-width:1100px;margin:auto;padding:35px 20px 100px}.heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}.heading h2{font-size:24px;letter-spacing:-.03em;margin:0}.subtle{color:var(--muted);font-size:14px}.categories{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:42px}.category{border:1px solid var(--border);border-radius:16px;padding:18px 14px;background:white;text-align:left;display:flex;flex-direction:column;gap:12px;min-height:144px;box-shadow:0 3px 12px #163a2708}.category:hover,.category:focus-visible{border-color:#0a7957}.category.active{background:var(--mint);border:2px solid var(--green)}.symbol{display:grid;place-items:center;background:var(--mint);color:var(--green);border-radius:13px;width:46px;height:46px;font-size:24px}.category span:last-child{font-size:14px;font-weight:750;line-height:1.35}.tools{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}.chip{background:white;border:1px solid var(--border);border-radius:99px;padding:8px 14px;color:var(--green);font-size:13px}.chip.active{background:var(--green);color:white}.listings{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px}.listing{background:white;border:1px solid var(--border);border-radius:18px;padding:22px;box-shadow:0 4px 18px #163a2709}.listing h3{margin:0;font-size:19px;line-height:1.35}.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:17px}.social{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:44px;padding:10px 13px;border:1px solid #cbded3;border-radius:11px;background:var(--mint);color:var(--green);font-size:14px;font-weight:700;text-decoration:none}.social:focus-visible,.social:hover{outline:2px solid var(--green);outline-offset:2px}.social svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.listinghead{display:flex;justify-content:space-between;align-items:start;gap:12px}.listinghead .tag{flex-shrink:0}.linknote{font-size:12px;color:var(--muted);margin-top:12px}.tag{font-size:12px;color:var(--green);background:var(--mint);padding:6px 10px;border-radius:99px;display:inline-block;font-weight:700}.demo{font-size:12px;color:#896012}.empty{padding:32px;background:white;border:1px dashed #b8cfc1;border-radius:16px;color:var(--muted)}.note{background:#edf5ef;border-radius:15px;padding:18px;margin-top:30px;color:#3e584b;font-size:14px}footer{text-align:center;padding:28px 20px 100px;color:var(--muted);font-size:13px}.bottom{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-around;background:white;border-top:1px solid var(--border);padding:10px 8px max(10px,env(safe-area-inset-bottom));z-index:5}.bottom button{background:none;border:0;color:var(--green);font-size:12px;font-weight:700;padding:5px 12px}.bottom b{display:block;font-size:21px}@media(min-width:720px){.categories{grid-template-columns:repeat(3,1fr)}.category{min-height:156px;padding:22px}.bottom{display:none}main{padding-bottom:45px}footer{padding-bottom:30px}}
+</style>
+</head>
+<body>
+<header><div class="top"><div class="brand">MinHunaSG<small lang="ar">من هنا</small></div><button class="navbtn" onclick="document.getElementById('categories').scrollIntoView()">Explore ☰</button></div></header>
+<section class="hero"><div class="wrap"><div class="eyebrow">Singapore Islamic services directory</div><h1>Find Islamic services in Singapore.</h1><p>One place to discover Islamic travel, religious services, education, mosques and learning resources.</p><form class="searchbox" id="searchForm"><input id="search" type="search" placeholder="Search provider names or categories…" aria-label="Search providers and categories"><button type="submit">Search</button></form></div></section>
+<main><section id="categories"><div class="heading"><h2>Explore categories</h2></div><div class="categories" id="categoryGrid"></div></section><section id="results"><div class="heading"><div><h2>Browse providers</h2><div class="subtle" id="count" aria-live="polite"></div></div><button class="chip" id="clear" type="button">Clear filters</button></div><div class="tools" id="filters"></div><div class="listings" id="listings"></div><div class="note">MinHunaSG is an independent directory. Listings are provided for discovery only and do not constitute endorsement. Please verify providers’ credentials, current licensing, services and terms directly before booking or paying. MinHunaSG does not arrange bookings or collect payments.</div></section></main>
+<footer>© <span id="year"></span> MinHunaSG · Your journey starts here · Singapore</footer>
+<nav class="bottom" aria-label="Mobile navigation"><button onclick="window.scrollTo({top:0,behavior:'smooth'})"><b>⌂</b>Home</button><button onclick="document.getElementById('categories').scrollIntoView()"><b>▦</b>Categories</button><button onclick="document.getElementById('search').focus();window.scrollTo({top:0,behavior:'smooth'})"><b>⌕</b>Search</button></nav>
+<script>
+const categories=[
+{label:'Umrah & Islamic Travel',icon:'✈'},
+{label:'Korban, Aqiqah & Religious Services',icon:'♧'},
+{label:'Islamic Education & Learning',icon:'▤'},
+{label:'Madrasahs & Educational Institutions',icon:'🎓'},
+{label:'Mosques & Community',icon:'☪'},
+{label:'Islamic Books & Educational Products',icon:'▥'}
+];
+// Provider links are maintained in the providers array. Verify before publishing or changing.
+const providers=[
+  {
+    "name": "AQ Travel & Tours",
+    "category": "Umrah & Islamic Travel",
+    "website": "https://aqtravel.com.sg/",
+    "instagram": "",
+    "facebook": ""
+  },
+  {
+    "name": "Azza Travel & Tours",
+    "category": "Umrah & Islamic Travel",
+    "website": "https://www.azzatravel.com/",
+    "instagram": "",
+    "facebook": ""
+  },
+  {
+    "name": "De Hayat Travel & Services",
+    "category": "Umrah & Islamic Travel",
+    "website": "https://www.dehayattravel.org/",
+    "instagram": "",
+    "facebook": ""
+  },
+  {
+    "name": "Hagel Travel & Tours",
+    "category": "Umrah & Islamic Travel",
+    "website": "https://www.hageltravel.com/",
+    "instagram": "https://www.instagram.com/hageltravel",
+    "facebook": "https://www.facebook.com/HagelTT"
+  },
+  {
+    "name": "Halijah Travels",
+    "category": "Umrah & Islamic Travel",
+    "website": "https://halijah.com.sg/",
+    "instagram": "",
+    "facebook": ""
+  },
+  {
+    "name": "Hamidah Travel & Tours",
+    "category": "Umrah & Islamic Travel",
+    "website": "https://hamidahtravel.com.sg/",
+    "instagram": "",
+    "facebook": ""
+  },
+  {
+    "name": "ILM Tours",
+    "category": "Umrah & Islamic Travel",
+    "website": "https://ilmtours.sg/",
+    "instagram": "",
+    "facebook": ""
+  },
+  {
+    "name": "Imaan Travel & Tours",
+    "category": "Umrah & Islamic Travel",
+    "website": "https://www.imaantravelandtours.com/",
+    "instagram": "",
+    "facebook": ""
+  },
+  {
+    "name": "Imtiyaaz Travel",
+    "category": "Umrah & Islamic Travel",
+    "website": "https://www.imtiyaaztravel.com/",
+    "instagram": "",
+    "facebook": ""
+  },
+  {
+    "name": "Musafireen.sg",
+    "category": "Umrah & Islamic Travel",
+    "website": "https://musafireen.sg/",
+    "instagram": "",
+    "facebook": ""
+  },
+  {
+    "name": "Naz Travel",
+    "category": "Umrah & Islamic Travel",
+    "website": "https://naztravel.com.sg/",
+    "instagram": "",
+    "facebook": ""
+  },
+  {
+    "name": "Nur JDS Travel",
+    "category": "Umrah & Islamic Travel",
+    "website": "https://nurjdstravel.com.sg/",
+    "instagram": "",
+    "facebook": ""
+  },
+  {
+    "name": "Safar SG",
+    "category": "Umrah & Islamic Travel",
+    "website": "https://www.safar.sg/",
+    "instagram": "",
+    "facebook": ""
+  },
+  {
+    "name": "Shahidah Travel & Tours",
+    "category": "Umrah & Islamic Travel",
+    "website": "https://shahidahtravel.com/",
+    "instagram": "",
+    "facebook": ""
+  },
+  {
+    "name": "Smiling Travel",
+    "category": "Umrah & Islamic Travel",
+    "website": "https://smilingtravel.com.sg/",
+    "instagram": "",
+    "facebook": ""
+  },
+  {
+    "name": "Thoha Travel & Tours",
+    "category": "Umrah & Islamic Travel",
+    "website": "https://thohatravels.com.sg/",
+    "instagram": "",
+    "facebook": ""
+  },
+  {
+    "name": "TM Fouzy Travel & Tours",
+    "category": "Umrah & Islamic Travel",
+    "website": "https://tmfouzy.sg/",
+    "instagram": "",
+    "facebook": ""
+  },
+  {
+    "name": "TravelConnect.sg",
+    "category": "Umrah & Islamic Travel",
+    "website": "https://travelconnect.sg/",
+    "instagram": "",
+    "facebook": ""
+  },
+  {
+    "name": "Hahnemann Travel & Tours",
+    "category": "Umrah & Islamic Travel",
+    "website": "https://hahnemanntravel.com.sg/",
+    "instagram": "",
+    "facebook": ""
+  },
+  {
+    "name": "Jalaluddin Travel & Services",
+    "category": "Umrah & Islamic Travel",
+    "website": "https://jalaluddintravel.com/",
+    "instagram": "",
+    "facebook": ""
+  }
+];
+let selected='';const $=id=>document.getElementById(id);
+function renderCategories(){ $('categoryGrid').replaceChildren();categories.forEach(c=>{const b=document.createElement('button');b.className='category'+(selected===c.label?' active':'');b.setAttribute('aria-pressed',String(selected===c.label));const icon=document.createElement('span');icon.className='symbol';icon.textContent=c.icon;icon.setAttribute('aria-hidden','true');const name=document.createElement('span');name.textContent=c.label;b.append(icon,name);b.onclick=()=>{selected=selected===c.label?'':c.label;render();$('results').scrollIntoView({behavior:'smooth'})};$('categoryGrid').append(b)})}
+function renderFilters(){const box=$('filters');box.replaceChildren();[{label:'All services',value:''},...categories.map(c=>({label:c.label,value:c.label}))].forEach(c=>{const b=document.createElement('button');b.className='chip'+(selected===c.value?' active':'');b.textContent=c.label;b.setAttribute('aria-pressed',String(selected===c.value));b.onclick=()=>{selected=c.value;render()};box.append(b)})}
+function renderListings(){
+ const q=$('search').value.trim().toLowerCase();
+ const matches=providers.filter(p=>(!selected||p.category===selected)&&[p.name,p.category].join(' ').toLowerCase().includes(q));
+ $('count').textContent=`${matches.length} provider${matches.length===1?'':'s'} found`;
+ $('listings').replaceChildren();
+ if(!matches.length){const e=document.createElement('div');e.className='empty';e.textContent='No matching providers yet. Try another name or category.';$('listings').append(e);return}
+ const icons={website:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-5 5-5 13 0 18M12 3c5 5 5 13 0 18"/></svg>',instagram:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>',facebook:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h-2a4 4 0 0 0-4 4v3H6v4h3v7h4v-7h3l1-4h-4V7h3"/></svg>'};
+ matches.forEach(p=>{
+  const card=document.createElement('article');card.className='listing';
+  const head=document.createElement('div');head.className='listinghead';
+  const title=document.createElement('h3');title.textContent=p.name;
+  head.append(title);card.append(head);
+  const links=document.createElement('div');links.className='links';
+  for(const [key,label] of [['website','Website'],['instagram','Instagram'],['facebook','Facebook']]){
+   if(!p[key])continue;
+   const a=document.createElement('a');a.className='social';a.href=p[key];a.target='_blank';a.rel='noopener noreferrer';a.setAttribute('aria-label',`${label} link for ${p.name}`);
+   a.innerHTML=icons[key]+'<span>'+label+'</span>';links.append(a);
+  }
+  card.append(links);
+  $('listings').append(card);
+ });
+}
+function render(){renderCategories();renderFilters();renderListings()}
+$('searchForm').addEventListener('submit',e=>{e.preventDefault();renderListings();$('results').scrollIntoView({behavior:'smooth'})});$('search').addEventListener('input',renderListings);$('clear').addEventListener('click',()=>{selected='';$('search').value='';render()});$('year').textContent=new Date().getFullYear();render();
+</script>
+</body></html>
