@@ -1,0 +1,275 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#145b43">
+  <title>MinHunaSG | Islamic Services in Singapore</title>
+  <style>
+    :root {
+      --green: #145b43;
+      --light: #edf5f0;
+      --text: #18352b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      background: #fafbf9;
+    }
+    header {
+      background: white;
+      padding: 18px 6%;
+      border-bottom: 1px solid #e3e9e5;
+    }
+    .brand {
+      font-size: 23px;
+      font-weight: 800;
+      color: var(--green);
+    }
+    .arabic {
+      font-size: 14px;
+      color: #678076;
+      margin-left: 8px;
+    }
+    .hero {
+      background: var(--green);
+      color: white;
+      padding: 65px 6% 75px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: clamp(30px, 6vw, 48px);
+      margin: 0 0 14px;
+    }
+    .hero p {
+      opacity: .9;
+      line-height: 1.6;
+    }
+    .search {
+      width: 100%;
+      max-width: 650px;
+      padding: 17px 20px;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 36px 6%;
+    }
+    h2 { font-size: 23px; }
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    button.category {
+      background: white;
+      color: var(--text);
+      border: 1px solid #dce6df;
+      border-radius: 12px;
+      padding: 22px 12px;
+      text-align: left;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    button.category.active {
+      border: 2px solid var(--green);
+      background: var(--light);
+    }
+    .listings {
+      display: grid;
+      gap: 14px;
+    }
+    .listing {
+      background: white;
+      border: 1px solid #e0e8e2;
+      border-radius: 14px;
+      padding: 20px;
+    }
+    .listing h3 { margin: 0 0 8px; }
+    .listing p { color: #607268; }
+    .tag {
+      display: inline-block;
+      background: var(--light);
+      color: var(--green);
+      padding: 6px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+    }
+    .empty { color: #607268; }
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #68776d;
+      font-size: 13px;
+    }
+    @media (min-width: 700px) {
+      .categories {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .listings {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <span class="brand">MinHunaSG</span>
+    <span class="arabic" lang="ar">من هنا</span>
+  </header>
+
+  <section class="hero">
+    <h1>Your journey starts here.</h1>
+    <p>Discover Islamic services, education and
+       resources across Singapore.</p>
+    <input
+      class="search"
+      id="search"
+      type="search"
+      placeholder="Search Umrah, Aqiqah, classes..."
+      aria-label="Search Islamic services">
+  </section>
+
+  <main>
+    <h2>Explore Categories</h2>
+    <div class="categories" id="categories"></div>
+
+    <h2>Explore Services</h2>
+    <p id="count" aria-live="polite"></p>
+    <div class="listings" id="listings"></div>
+  </main>
+
+  <footer>
+    © MinHunaSG · Made for Singapore
+  </footer>
+
+  <script>
+    const categories = [
+      "Hajj, Umrah & Islamic Travel",
+      "Korban, Aqiqah & Religious Services",
+      "Islamic Education & Learning",
+      "Madrasahs & Educational Institutions",
+      "Mosques & Community",
+      "Islamic Books & Educational Products"
+    ];
+
+    // Demonstration data only. Not real providers.
+    const providers = [
+      {
+        name: "Sample Umrah Provider",
+        category: categories[0],
+        description: "Example listing for Umrah travel services."
+      },
+      {
+        name: "Sample Aqiqah Provider",
+        category: categories[1],
+        description: "Example listing for Aqiqah services."
+      },
+      {
+        name: "Sample Arabic Learning Centre",
+        category: categories[2],
+        description: "Example listing for Arabic lessons."
+      }
+    ];
+
+    let selectedCategory = "";
+
+    const categoryBox =
+      document.getElementById("categories");
+    const listingBox =
+      document.getElementById("listings");
+    const searchBox =
+      document.getElementById("search");
+
+    function renderCategories() {
+      categoryBox.replaceChildren();
+
+      categories.forEach(category => {
+        const button = document.createElement("button");
+        button.className = "category";
+        button.textContent = category;
+        button.setAttribute(
+          "aria-pressed",
+          String(selectedCategory === category)
+        );
+
+        if (selectedCategory === category) {
+          button.classList.add("active");
+        }
+
+        button.addEventListener("click", () => {
+          selectedCategory =
+            selectedCategory === category ? "" : category;
+          renderCategories();
+          renderListings();
+        });
+
+        categoryBox.appendChild(button);
+      });
+    }
+
+    function renderListings() {
+      const query = searchBox.value
+        .toLowerCase().trim();
+
+      const results = providers.filter(provider => {
+        const searchable = [
+          provider.name,
+          provider.category,
+          provider.description
+        ].join(" ").toLowerCase();
+
+        return searchable.includes(query) &&
+          (!selectedCategory ||
+           provider.category === selectedCategory);
+      });
+
+      document.getElementById("count").textContent =
+        results.length + " demonstration listing(s) found";
+
+      listingBox.replaceChildren();
+
+      if (!results.length) {
+        const empty = document.createElement("p");
+        empty.className = "empty";
+        empty.textContent = "No matching services found.";
+        listingBox.appendChild(empty);
+        return;
+      }
+
+      results.forEach(provider => {
+        const card = document.createElement("article");
+        card.className = "listing";
+
+        const title = document.createElement("h3");
+        title.textContent = provider.name;
+
+        const tag = document.createElement("span");
+        tag.className = "tag";
+        tag.textContent = provider.category;
+
+        const description = document.createElement("p");
+        description.textContent = provider.description;
+
+        card.append(title, tag, description);
+        listingBox.appendChild(card);
+      });
+    }
+
+    searchBox.addEventListener("input", renderListings);
+    renderCategories();
+    renderListings();
+  </script>
+</body>
+</html>
+  
