@@ -12,24 +12,160 @@
 <body>
 <header><div class="top"><div class="brand">MinHunaSG<small lang="ar">من هنا</small></div><button class="navbtn" onclick="document.getElementById('categories').scrollIntoView()">Explore ☰</button></div></header>
 <section class="hero"><div class="wrap"><div class="eyebrow">Singapore Islamic services directory</div><h1>Find Islamic services in Singapore.</h1><p>One place to discover Islamic travel, religious services, education, mosques and learning resources.</p><form class="searchbox" id="searchForm"><input id="search" type="search" placeholder="Search provider names or categories…" aria-label="Search providers and categories"><button type="submit">Search</button></form></div></section>
-<main><section id="categories"><div class="heading"><h2>Explore categories</h2></div><div class="categories" id="categoryGrid"></div></section><section id="results"><div class="heading"><div><h2>Browse providers</h2><div class="subtle" id="count" aria-live="polite"></div></div><button class="chip" id="clear" type="button">Clear filters</button></div><div class="tools" id="filters"></div><div class="listings" id="listings"></div><div class="note">Demonstration only: provider names are fictional. The links below lead to generic example or social-platform homepages, NOT to actual provider accounts. We will replace these with verified official links before promoting the directory.</div></section></main>
+<main><section id="categories"><div class="heading"><h2>Explore categories</h2></div><div class="categories" id="categoryGrid"></div></section><section id="results"><div class="heading"><div><h2>Browse providers</h2><div class="subtle" id="count" aria-live="polite"></div></div><button class="chip" id="clear" type="button">Clear filters</button></div><div class="tools" id="filters"></div><div class="listings" id="listings"></div><div class="note">MinHunaSG is an independent directory. Listings are provided for discovery only and do not constitute endorsement. Please verify providers’ credentials, current licensing, services and terms directly before booking or paying. MinHunaSG does not arrange bookings or collect payments.</div></section></main>
 <footer>© <span id="year"></span> MinHunaSG · Your journey starts here · Singapore</footer>
 <nav class="bottom" aria-label="Mobile navigation"><button onclick="window.scrollTo({top:0,behavior:'smooth'})"><b>⌂</b>Home</button><button onclick="document.getElementById('categories').scrollIntoView()"><b>▦</b>Categories</button><button onclick="document.getElementById('search').focus();window.scrollTo({top:0,behavior:'smooth'})"><b>⌕</b>Search</button></nav>
 <script>
 const categories=[
-{label:'Hajj, Umrah & Islamic Travel',icon:'✈'},
+{label:'Umrah & Islamic Travel',icon:'✈'},
 {label:'Korban, Aqiqah & Religious Services',icon:'♧'},
 {label:'Islamic Education & Learning',icon:'▤'},
 {label:'Madrasahs & Educational Institutions',icon:'🎓'},
 {label:'Mosques & Community',icon:'☪'},
 {label:'Islamic Books & Educational Products',icon:'▥'}
 ];
-// Example URLs below are for interface testing only, NOT provider accounts.
-// Leave a link empty if a real provider has no verified account on that platform.
+// Provider links are maintained in the providers array. Verify before publishing or changing.
 const providers=[
-{name:'Sample Umrah Travel Service',category:categories[0].label,website:'https://example.com',instagram:'https://www.instagram.com/',facebook:''},
-{name:'Sample Aqiqah Service',category:categories[1].label,website:'https://example.org',instagram:'',facebook:'https://www.facebook.com/'},
-{name:'Sample Arabic Learning Centre',category:categories[2].label,website:'https://example.net',instagram:'https://www.instagram.com/',facebook:'https://www.facebook.com/'}
+  {
+    "name": "AQ Travel & Tours",
+    "category": "Umrah & Islamic Travel",
+    "website": "https://aqtravel.com.sg/",
+    "instagram": "",
+    "facebook": ""
+  },
+  {
+    "name": "Azza Travel & Tours",
+    "category": "Umrah & Islamic Travel",
+    "website": "https://www.azzatravel.com/",
+    "instagram": "",
+    "facebook": ""
+  },
+  {
+    "name": "De Hayat Travel & Services",
+    "category": "Umrah & Islamic Travel",
+    "website": "https://www.dehayattravel.org/",
+    "instagram": "",
+    "facebook": ""
+  },
+  {
+    "name": "Hagel Travel & Tours",
+    "category": "Umrah & Islamic Travel",
+    "website": "https://www.hageltravel.com/",
+    "instagram": "https://www.instagram.com/hageltravel",
+    "facebook": "https://www.facebook.com/HagelTT"
+  },
+  {
+    "name": "Halijah Travels",
+    "category": "Umrah & Islamic Travel",
+    "website": "https://halijah.com.sg/",
+    "instagram": "",
+    "facebook": ""
+  },
+  {
+    "name": "Hamidah Travel & Tours",
+    "category": "Umrah & Islamic Travel",
+    "website": "https://hamidahtravel.com.sg/",
+    "instagram": "",
+    "facebook": ""
+  },
+  {
+    "name": "ILM Tours",
+    "category": "Umrah & Islamic Travel",
+    "website": "https://ilmtours.sg/",
+    "instagram": "",
+    "facebook": ""
+  },
+  {
+    "name": "Imaan Travel & Tours",
+    "category": "Umrah & Islamic Travel",
+    "website": "https://www.imaantravelandtours.com/",
+    "instagram": "",
+    "facebook": ""
+  },
+  {
+    "name": "Imtiyaaz Travel",
+    "category": "Umrah & Islamic Travel",
+    "website": "https://www.imtiyaaztravel.com/",
+    "instagram": "",
+    "facebook": ""
+  },
+  {
+    "name": "Musafireen.sg",
+    "category": "Umrah & Islamic Travel",
+    "website": "https://musafireen.sg/",
+    "instagram": "",
+    "facebook": ""
+  },
+  {
+    "name": "Naz Travel",
+    "category": "Umrah & Islamic Travel",
+    "website": "https://naztravel.com.sg/",
+    "instagram": "",
+    "facebook": ""
+  },
+  {
+    "name": "Nur JDS Travel",
+    "category": "Umrah & Islamic Travel",
+    "website": "https://nurjdstravel.com.sg/",
+    "instagram": "",
+    "facebook": ""
+  },
+  {
+    "name": "Safar SG",
+    "category": "Umrah & Islamic Travel",
+    "website": "https://www.safar.sg/",
+    "instagram": "",
+    "facebook": ""
+  },
+  {
+    "name": "Shahidah Travel & Tours",
+    "category": "Umrah & Islamic Travel",
+    "website": "https://shahidahtravel.com/",
+    "instagram": "",
+    "facebook": ""
+  },
+  {
+    "name": "Smiling Travel",
+    "category": "Umrah & Islamic Travel",
+    "website": "https://smilingtravel.com.sg/",
+    "instagram": "",
+    "facebook": ""
+  },
+  {
+    "name": "Thoha Travel & Tours",
+    "category": "Umrah & Islamic Travel",
+    "website": "https://thohatravels.com.sg/",
+    "instagram": "",
+    "facebook": ""
+  },
+  {
+    "name": "TM Fouzy Travel & Tours",
+    "category": "Umrah & Islamic Travel",
+    "website": "https://tmfouzy.sg/",
+    "instagram": "",
+    "facebook": ""
+  },
+  {
+    "name": "TravelConnect.sg",
+    "category": "Umrah & Islamic Travel",
+    "website": "https://travelconnect.sg/",
+    "instagram": "",
+    "facebook": ""
+  },
+  {
+    "name": "Hahnemann Travel & Tours",
+    "category": "Umrah & Islamic Travel",
+    "website": "https://hahnemanntravel.com.sg/",
+    "instagram": "",
+    "facebook": ""
+  },
+  {
+    "name": "Jalaluddin Travel & Services",
+    "category": "Umrah & Islamic Travel",
+    "website": "https://jalaluddintravel.com/",
+    "instagram": "",
+    "facebook": ""
+  }
 ];
 let selected='';const $=id=>document.getElementById(id);
 function renderCategories(){ $('categoryGrid').replaceChildren();categories.forEach(c=>{const b=document.createElement('button');b.className='category'+(selected===c.label?' active':'');b.setAttribute('aria-pressed',String(selected===c.label));const icon=document.createElement('span');icon.className='symbol';icon.textContent=c.icon;icon.setAttribute('aria-hidden','true');const name=document.createElement('span');name.textContent=c.label;b.append(icon,name);b.onclick=()=>{selected=selected===c.label?'':c.label;render();$('results').scrollIntoView({behavior:'smooth'})};$('categoryGrid').append(b)})}
@@ -37,7 +173,7 @@ function renderFilters(){const box=$('filters');box.replaceChildren();[{label:'A
 function renderListings(){
  const q=$('search').value.trim().toLowerCase();
  const matches=providers.filter(p=>(!selected||p.category===selected)&&[p.name,p.category].join(' ').toLowerCase().includes(q));
- $('count').textContent=`${matches.length} demonstration provider${matches.length===1?'':'s'} found`;
+ $('count').textContent=`${matches.length} provider${matches.length===1?'':'s'} found`;
  $('listings').replaceChildren();
  if(!matches.length){const e=document.createElement('div');e.className='empty';e.textContent='No matching providers yet. Try another name or category.';$('listings').append(e);return}
  const icons={website:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-5 5-5 13 0 18M12 3c5 5 5 13 0 18"/></svg>',instagram:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>',facebook:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h-2a4 4 0 0 0-4 4v3H6v4h3v7h4v-7h3l1-4h-4V7h3"/></svg>'};
@@ -45,16 +181,14 @@ function renderListings(){
   const card=document.createElement('article');card.className='listing';
   const head=document.createElement('div');head.className='listinghead';
   const title=document.createElement('h3');title.textContent=p.name;
-  const tag=document.createElement('span');tag.className='tag';tag.textContent='Demo';
-  head.append(title,tag);card.append(head);
+  head.append(title);card.append(head);
   const links=document.createElement('div');links.className='links';
   for(const [key,label] of [['website','Website'],['instagram','Instagram'],['facebook','Facebook']]){
    if(!p[key])continue;
-   const a=document.createElement('a');a.className='social';a.href=p[key];a.target='_blank';a.rel='noopener noreferrer';a.setAttribute('aria-label',`${label} demo link for ${p.name}`);
+   const a=document.createElement('a');a.className='social';a.href=p[key];a.target='_blank';a.rel='noopener noreferrer';a.setAttribute('aria-label',`${label} link for ${p.name}`);
    a.innerHTML=icons[key]+'<span>'+label+'</span>';links.append(a);
   }
   card.append(links);
-  const note=document.createElement('div');note.className='linknote';note.textContent='Test links only — not this provider’s official accounts';card.append(note);
   $('listings').append(card);
  });
 }
